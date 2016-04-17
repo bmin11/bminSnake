@@ -2,6 +2,7 @@ var plan = require('flightplan');
 
 var appName = 'bminSnake';
 var username = 'deploy';
+var password = 'adora11';
 var startFile = 'bin/www';
 
 var tmpDir = appName+'-' + new Date().getTime();
@@ -11,6 +12,7 @@ plan.target('staging', [
   {
     host: '159.203.34.217',
     username: username,
+    password: password,
     agent: process.env.SSH_AUTH_SOCK
   }
 ]);
@@ -19,6 +21,7 @@ plan.target('production', [
   {
     host: '159.203.34.217',
     username: username,
+    password: password,
     agent: process.env.SSH_AUTH_SOCK
   },
 //add in another server if you have more than one
