@@ -3,7 +3,7 @@ var plan = require('flightplan');
 var appName = 'bminSnake';
 var username = 'deploy';
 var password = 'adora11';
-var startFile = 'bin/www';
+var startFile = 'index.js';
 
 var tmpDir = appName+'-' + new Date().getTime();
 
