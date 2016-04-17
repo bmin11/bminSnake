@@ -73,6 +73,9 @@ socket.on('start game', function(e){
     }
   }
 
+  winner[0] = false;
+  winner[1] = false;
+
   heads[0] = new Head(RIGHT, "#ff0000", 9, 9);
   objects[9][9] = heads[0];
   objects[8][9] = new Tail(heads[0], "#ff9999", 8, 9);
