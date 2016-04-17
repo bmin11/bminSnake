@@ -9,6 +9,7 @@ var heads = [];
 var objects = [];
 var TAIL_COLOR = ["#ff9999", "#66ccff"];
 var winner = [false, false];
+var intrvl = 150;
 
 var timer;
 
@@ -19,6 +20,19 @@ function handleClick(cb) {
 
 socket.on('host', function(e){
   document.getElementById("host").disabled = e;
+});
+
+socket.on('new connect', function(){
+  document.getElementById("msg").hidden = false;
+  socket.emit('greeting');
+});
+
+socket.on('greeting', function(){
+  document.getElementById("msg").hidden = false;
+});
+
+socket.on('user gone', function(){
+  document.getElementById("msg").hidden = true;
 });
 
 function stop() {
@@ -37,7 +51,7 @@ function resume() {
 
 socket.on('resume game', function() {
   clearInterval(timer);
-  timer = setInterval(tick , 500);
+  timer = setInterval(tick , intrvl);
   document.getElementById("btResume").hidden = true;
   document.getElementById("btStop").hidden = false;
 });
@@ -79,7 +93,7 @@ socket.on('start game', function(e){
     randomOrb();
   }
 
-  timer = setInterval(tick , 500);
+  timer = setInterval(tick , intrvl);
 });
 
 

@@ -14,10 +14,17 @@ http.listen(3000, function() {
 });
 
 io.on('connection', function(socket){
+  socket.broadcast.emit('new connect');
 
   console.log('a user connected');
   socket.on('disconnect', function(){
     console.log('user disconnected');
+    io.emit('user gone');
+  });
+
+  socket.on('greeting', function(){
+    console.log('greeting');
+    io.emit('greeting');
   });
 
   socket.on('host', function(e){
