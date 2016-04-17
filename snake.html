@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="head.js"></script>
+    <script src="tail.js"></script>
+    <script src="snake.js"></script>
+    <script src="orb.js"></script>
+    <style>
+      #canvas {
+        background-color: rgba(0, 0, 0, 100);
+      }
+    </style>
+    <title>Snake</title>
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="800"></canvas>
+    <br>
+    <input type="checkbox" id="host" onclick="handleClick(this)">Host</input>
+    <br>
+    <button id="btStart" onclick="start(this)" hidden>Start</button>
+    <button id="btStop" onclick="stop()" hidden>Stop</button>
+    <button id="btResume" onclick="resume()" hidden>Resume</button>
+  </body>
+</html>
